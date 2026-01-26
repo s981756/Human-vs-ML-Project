@@ -25,6 +25,7 @@ k = 1
 knn = KNeighborsClassifier(n_neighbors=k)
 knn.fit(X_train, y_train)
 y_pred = knn.predict(X_test)
+y_train_pred = knn.predict(X_train)
 
 # create confusion matrix
 conf_matrix_knn = pd.crosstab(
@@ -41,14 +42,43 @@ accuracy_knn = (y_pred == y_test).mean()
 print(f"KNN classifier accuracy (k={k}): {accuracy_knn:.2%}\n")
 print(conf_matrix_knn)
 
-# Add a 'correct' column for the visualization
+# Add a 'correct' column for the visualization on test data
 test_df = X_test.copy()
 test_df[target_name] = y_test
 test_df['KNN_prediction'] = y_pred
 test_df['correct'] = test_df['KNN_prediction'] == test_df[target_name]
 
+# Add a 'correct' column for the visualization on training data
+train_df = X_train.copy()
+train_df[target_name] = y_train
+train_df['KNN_prediction'] = y_train_pred
+train_df['correct'] = train_df['KNN_prediction'] == train_df[target_name]
+
 # Create a visualization of KNN classifier results
 os.makedirs("example/e_ml_model/plots", exist_ok=True)
+
+# Create a visualization for training data
+# I left this commented out, but feel free to toggle this plot to see training results.
+# plt.figure(figsize=(8, 6))
+# sns.scatterplot(
+#     data=train_df,
+#     x='petal length',
+#     y='petal width',
+#     hue='correct',
+#     style='correct',
+#     s=100,
+#     palette={True: 'green', False: 'red'}
+# )
+
+# plt.title('KNN Algorithm (Training Set): Correct vs Incorrect Predictions')
+# plt.xlabel('Petal Length (cm)')
+# plt.ylabel('Petal Width (cm)')
+# plt.legend(title='Prediction Correct')
+# plt.grid(True)
+# plt.savefig('example/e_ml_model/plots/knn_model_training_results.png', dpi=150)
+# plt.close()
+
+# Create a visualization for test data
 plt.figure(figsize=(8, 6))
 sns.scatterplot(
     data=test_df,
