@@ -1,3 +1,10 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import os
+
+# -----------------------------------------------------------------------
+#copied directly from the UCI Machine Learning Repo package documentation
 from ucimlrepo import fetch_ucirepo 
   
 # fetch dataset 
@@ -12,3 +19,4 @@ print(student_performance.metadata)
   
 # variable information 
 print(student_performance.variables) 
+# -----------------------------------------------------------
