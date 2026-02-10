@@ -3,20 +3,30 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import os
 
+def load_student_data():
+
 # -----------------------------------------------------------------------
-#copied directly from the UCI Machine Learning Repo package documentation
-from ucimlrepo import fetch_ucirepo 
+    #copied directly from the UCI Machine Learning Repo package documentation
+    from ucimlrepo import fetch_ucirepo 
   
-# fetch dataset 
-student_performance = fetch_ucirepo(id=320) 
+    # fetch dataset 
+    student_performance = fetch_ucirepo(id=320) 
   
-# data (as pandas dataframes) 
-X = student_performance.data.features 
-y = student_performance.data.targets 
+    # data (as pandas dataframes) 
+    X = student_performance.data.features 
+    y = student_performance.data.targets 
   
-# metadata 
-print(student_performance.metadata) 
+    # metadata 
+    print(student_performance.metadata) 
   
-# variable information 
-print(student_performance.variables) 
-# -----------------------------------------------------------
+    # variable information 
+    print(student_performance.variables) 
+    # -----------------------------------------------------------
+
+    feature_names = student_performance.variables[student_performance.variables['role'] == 'Feature']['name'].tolist()
+    target_name = student_performance.variables[student_performance.variables['role'] == 'Target']['name'].values[0]
+
+    df = pd.DataFrame(student_performance.data.features, columns=feature_names)
+    df[target_name] = student_performance.data.targets
+
+    return df, target_name
