@@ -27,6 +27,6 @@ def make_plots(variable_1, variable_2):
     plt.legend(title="Student Performance")
     plt.grid(True)
     
-make_plots('studytime', 'G3')
-make_plots('famrel', 'G3')
-make_plots('absences', 'G3')
+make_plots('studytime', 'famrel')
+# make_plots('famrel', 'G3')
+# make_plots('absences', 'G3')
