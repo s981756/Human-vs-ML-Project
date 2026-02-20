@@ -52,6 +52,6 @@ def load_student_data():
     if target_name in df.columns:
         df['passing?'] = df[target_name].apply(lambda x: 'Yes' if x >= 12 else 'No')
 
-    print(target_name)
+    # print(target_name)
 
     return df, target_name

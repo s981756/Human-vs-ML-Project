@@ -7,7 +7,7 @@ def make_plots(variable_1, variable_2):
     variable_1_label = variable_1.replace('_',' ')
     variable_2_label = variable_2.replace('_',' ')
 
-    df, passing = load_student_data()
+    df, target_name = load_student_data()
 
     os.makedirs("plots", exist_ok=True)
 
