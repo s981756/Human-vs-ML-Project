@@ -15,7 +15,7 @@ def make_plots(variable_1, variable_2):
     sns.scatterplot(
         data=df,
         x=variable_1,
-        y=variable_1,
+        y=variable_2,
         hue=df["passing?"],
         style=df["passing?"],
         s=90
@@ -27,13 +27,15 @@ def make_plots(variable_1, variable_2):
     plt.legend(title="Passing?")
     plt.grid(True)
 
-    print(df)
-    print(df['passing?'])
+    # print(df)
+    # print(df['passing?'])
 
 #/workspaces/Human-vs-ML-Project/getting_started/plots
     plt.savefig(f"/workspaces/Human-vs-ML-Project/getting_started/plots/{variable_1}vs{variable_2}.png", dpi=150)
     plt.close()
     
 # make_plots('studytime', 'famrel')
+# make_plots('health', 'freetime')
 # make_plots('absences', 'age')
-make_plots('absences', 'famrel')
+
+make_plots('Dalc', 'Walc')
