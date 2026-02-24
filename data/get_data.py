@@ -54,4 +54,4 @@ def load_student_data():
 
     # print(target_name)
 
-    return df, target_name
+    return df, df['passing?']

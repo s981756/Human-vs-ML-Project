@@ -7,7 +7,7 @@ def make_plots(variable_1, variable_2):
     variable_1_label = variable_1.replace('_',' ')
     variable_2_label = variable_2.replace('_',' ')
 
-    df, target_name = load_student_data()
+    df, df['passing?'] = load_student_data()
 
     os.makedirs("plots", exist_ok=True)
 
@@ -24,11 +24,16 @@ def make_plots(variable_1, variable_2):
     plt.title(f"Factors that may affect student performance: {variable_1} vs. {variable_2}")
     plt.xlabel(f"{variable_1_label}")
     plt.ylabel(f"{variable_2_label}")
-    plt.legend(title="Student Performance")
+    plt.legend(title="Passing?")
     plt.grid(True)
-    plt.savefig(f"getiing_started/plots/{variable_1}vs{variable_2}.png", dpi=150)
+
+    print(df)
+    print(df['passing?'])
+
+#/workspaces/Human-vs-ML-Project/getting_started/plots
+    plt.savefig(f"/workspaces/Human-vs-ML-Project/getting_started/plots/{variable_1}vs{variable_2}.png", dpi=150)
     plt.close()
     
-make_plots('studytime', 'famrel')
-# make_plots('famrel', 'G3')
-# make_plots('absences', 'G3')
+# make_plots('studytime', 'famrel')
+# make_plots('absences', 'age')
+make_plots('absences', 'famrel')
