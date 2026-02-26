@@ -18,7 +18,7 @@ You may work alone or with a partner. You may choose to work with the provided P
 ---
 
 **Team Members:**  
-- Name 1  
+- Name 1  : Kaitlyn Murray
 - Name 2 (if applicable)  
 
 **Dataset Used:**  
