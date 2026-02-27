@@ -21,7 +21,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 # I selected k=1 for the KNN classifier.
-k = 67
+k = 65
 knn = KNeighborsClassifier(n_neighbors=k)
 knn.fit(X_train, y_train)
 y_pred = knn.predict(X_test)

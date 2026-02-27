@@ -19,20 +19,20 @@ You may work alone or with a partner. You may choose to work with the provided P
 
 **Team Members:**  
 - Name 1  : Kaitlyn Murray
-- Name 2 (if applicable)  
+- Name 2 : Ella Dalton  
 
 **Dataset Used:**  
-(e.g. Penguins, Iris, Titanic, etc.)
+Student Peformance
 
 **Source:**  
-(UCI / Kaggle / Provided dataset)
+UCI
 
 **Target Variable (What we are predicting):**  
-(e.g. species, survival, diagnosis)
+We are predicting whether or not a student is passing or failing.
 
 **Features Used:**  
-- Feature 1  
-- Feature 2  
+- Studytime (measurement in hours on a scale of 1-4)*
+- Family Relationship (measurement based on a scale of 1-5, 1 very bad and 5 excellent)
 - Feature 3
 
 **[Video Review](https://)**
@@ -41,23 +41,28 @@ You may work alone or with a partner. You may choose to work with the provided P
 
 ### Pseudo-Code
 ```text
-Write your human decision rules here.
+The best difference that was most visiable to us was when studytime is compared over different students, so the human algorithm is:
+
+    IF studytime >= 2:
+        Predict "Passing"
+    ELSE:
+        Predict "Failing
 ```
 
-When examining the data and visualizations, we focused on the features ___ and ___ because ___.
+When examining the data and visualizations, we focused on the feature studytime because it showed the more accurate results compared to when family relationships was used.
 
-The plots/tables suggested a possible threshold for ___, and we considered values above or below this point to see how they might relate to ___.
+The plots/tables suggested a possible threshold for studytime, and we considered values above or below 2 to see how they might relate to students passing or failing.
 
-From the summary tables and visualizations, it appeared that ___ could influence classification, which led us to ___ in our decision rules.
+From the summary tables and visualizations, it appeared that family relationships could influence classification, which led us to use this factor in our decision rules.
 
 ### Confusion Matrix
 
-Accuracy: ?
+Accuracy: 64.10%
 
-| Actual \ Predicted | Class 1 | Class 2 | Class 3 |
+| Actual \ Predicted | Failing | Passing | Class 3 |
 |-------------------|---------|---------|---------|
-| **Class 1**       |         |         |         |
-| **Class 2**       |         |         |         |
+| **Failing**       |    42     |    48     |         |
+| **Passing**       |    22     |    83     |         |
 | **Class 3**       |         |         |         |
 
 One example where our algorithm worked well is when the inputs were ___, leading to a correct prediction of ___ because ___.
@@ -70,25 +75,25 @@ These examples of success and failure highlight patterns in the data or limitati
 
 ## Machine Learning Model
 
-We chose a value of k = ___ after comparing model performance across different values of k and observing that ___.
+We chose a value of k = 65 after comparing model performance across different values of k and observing that this was the lowest amount we could do that had the highest accuracy.
 
-When analyzing the outputs and metrics, we noticed that changing k affected ___, which influenced our final choice.
+When analyzing the outputs and metrics, we noticed that changing k affected the accuracy, which influenced our final choice.
 
-Based on the results shown in the tables or visualizations, k = ___ best matched our goals for model performance because ___.
+Based on the results shown in the tables or visualizations, k = 65 best matched our goals for model performance because of how much data we had and the small range we had to reprsent our data.
 
 ### Confusion Matrix
 
-Accuracy: ?
+Accuracy: 65.64%
 
-| Actual \ Predicted | Class 1 | Class 2 | Class 3 |
+| Actual \ Predicted | Failing | Passing | Class 3 |
 |-------------------|---------|---------|---------|
-| **Class 1**       |         |         |         |
-| **Class 2**       |         |         |         |
+| **Failing**       |   56      |    34     |         |
+| **Passing**       |   33     |     72    |         |
 | **Class 3**       |         |         |         |
 
 The table/visualization shows a clear pattern where the model predicts ___ when ___, indicating a strong relationship between these features.
 
-The confusion matrix reveals that the model most often confuses ___ with ___, suggesting these classes have similar feature values.
+The confusion matrix reveals that the model most often confuses failing with passing, suggesting these classes have similar feature values.
 
 Compared to the human algorithm, the KNN model shows different behavior when ___, as seen in the ___ visualization.
 
